@@ -65,4 +65,5 @@ def determine_result(opponent_play, your_play):
     return result
 
 
-main()
+if __name__ == "__main__":
+    main()
