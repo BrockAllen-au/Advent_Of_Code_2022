@@ -4,6 +4,7 @@ FILE = "input.txt"
 def main():
     with open(FILE) as in_file:
         total = 0
+        overlap_total = 0
         for line in in_file:
             parts = (line.strip().replace("-", " ").replace(",", " ").split())
             converted_numbers = []
@@ -14,7 +15,11 @@ def main():
             comparison = set.intersection(number_range_01, number_range_02)
             if comparison == number_range_01 or comparison == number_range_02:
                 total += 1
-        print(f"Total: {total}")
+            if comparison != set():
+                overlap_total += 1
+
+        print(f"Total full duplication: {total}")
+        print(f"Total overlap duplication: {overlap_total}")
 
 
 if __name__ == "__main__":
